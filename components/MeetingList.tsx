@@ -29,14 +29,6 @@ const MeetingList = () => {
     if (!client || !user) return;
 
     try {
-      if (!client) {
-        console.error("Client is not initialized");
-        throw new Error("Client is not initialized");
-      }
-      if (!user) {
-        console.error("User is not logged in");
-        throw new Error("User is not logged in");
-      }
       if (!values.dateTime) {
         toast({ title: "Select Date and Time to schedule" });
         return;
