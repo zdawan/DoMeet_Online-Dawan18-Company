@@ -7,6 +7,7 @@ import Meetingmoral from "./Meetingmoral";
 import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useToast } from "@/components/ui/use-toast";
+import { Textarea } from "./ui/textarea";
 
 const MeetingList = () => {
   const router = useRouter();
@@ -104,7 +105,18 @@ const MeetingList = () => {
           title="Start Meeting"
           handleClick={createMeeting}
         >
-          test test
+          <div className="flex flex-col gap-2">
+            <label className="text-base text-normal leading-[22px] text-sky-1">
+              Add Desc to Meeting
+            </label>
+            <Textarea
+              className="border-none bg-white text-black focus visible:ring-0
+            focus-visible:ring-offset-0"
+              onChange={(e) => {
+                setvalues({ ...values, description: e.target.value });
+              }}
+            />
+          </div>
         </Meetingmoral>
       ) : (
         <Meetingmoral
