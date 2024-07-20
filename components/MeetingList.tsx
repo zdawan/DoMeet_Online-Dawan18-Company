@@ -8,6 +8,7 @@ import { useUser } from "@clerk/nextjs";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 import { useToast } from "@/components/ui/use-toast";
 import { Textarea } from "./ui/textarea";
+import ReactDatePicker from "react-datepicker";
 
 const MeetingList = () => {
   const router = useRouter();
@@ -115,6 +116,21 @@ const MeetingList = () => {
               onChange={(e) => {
                 setvalues({ ...values, description: e.target.value });
               }}
+            />
+          </div>
+          <div className="flex flex-col gap-2">
+            <label className="text-base text-normal leading-[22px] text-sky-1">
+              Add Date and Time
+            </label>
+            <ReactDatePicker
+              selected={values.dateTime}
+              onChange={(date) => setvalues({ ...values, dateTime: date! })}
+              showTimeSelect
+              timeFormat="HH:mm"
+              timeIntervals={30}
+              timeCaption="time"
+              dateFormat="MMMM d, yyyy h:mm aa "
+              className="w-full rounded bg-white  text-black p-2 focus:outline-none"
             />
           </div>
         </Meetingmoral>
