@@ -96,6 +96,32 @@ const MeetingList = () => {
         className="bg-yellow-1"
       />
 
+      {!callDetails ? (
+        <Meetingmoral
+          isOpen={meetingState === "isScheduleMeeting"}
+          onClose={() => setMeetingState(undefined)}
+          className="text-center"
+          title="Start Meeting"
+          handleClick={createMeeting}
+        >
+          test test
+        </Meetingmoral>
+      ) : (
+        <Meetingmoral
+          isOpen={meetingState === "isScheduleMeeting"}
+          onClose={() => setMeetingState(undefined)}
+          title="Meeting Created"
+          className="text-center"
+          handleClick={() => {
+            // navigator.clipboard.writeText(meetingLink);
+            //toast({ title: "Link Copied" });
+          }}
+          image="/icons/checked.svg"
+          buttonIcon="/icon/copy.svg"
+          buttonText="Copy Meetuing Link"
+        />
+      )}
+
       <Meetingmoral
         isOpen={meetingState === "isInstantMeeting"}
         onClose={() => setMeetingState(undefined)}
