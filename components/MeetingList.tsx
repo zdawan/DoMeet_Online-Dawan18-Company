@@ -144,11 +144,10 @@ const MeetingList = () => {
           className="text-center"
           handleClick={() => {
             navigator.clipboard.writeText(MeetingLink);
-            toast({ title: "Link Copied" });
+            toast({ title: "Link Copied Successfully" });
           }}
           image="/icons/checked.svg"
-          buttonIcon="/icon/copy.svg"
-          buttonText="Copy Meetuing Link"
+          buttonText="Copy Meeting Link"
         />
       )}
 
